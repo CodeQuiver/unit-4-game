@@ -1,11 +1,11 @@
 
 body {
-    font-size: 20px;
+    font-size: 18px;
     font-family: 'Rokkitt', serif;
     background-image: url(../images/whitediamond.png);
     background-color: #ffffff;
     color: #333333;
-    line-height: 1.3em;
+    line-height: 1.2em;
     margin: 0 auto;
 }
 
@@ -29,10 +29,51 @@ h2 {
     margin-bottom: 10px;
 }
 
+.label {
+    text-align: center;
+    font-size: 20px;
+    line-height: 22px;
+}
+
+h3 {
+    font-size: 28px;
+    line-height: 60px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    margin: 10px auto;
+    width: 500px;
+    border: solid 2px indigo;
+    background-color: aliceblue;
+    clear: both;
+}
+
 .instructions {
     background-color: turquoise;
-    width: 80%;
+    width: 60%;
     margin: 10px auto;
     padding: 10px;
     text-align: left;
+}
+
+aside#scoreboard {
+    background-color: hotpink;
+    float: left;
+    width: 200px;
+    margin: 20px;
+    margin-top: 0;
+    padding: 10px;
+    text-align: left;
+}
+
+#jewels {
+    width: 60%;
+    margin: 10px auto;
+    padding: 10px;
+    text-align: center;
+    margin: 40px auto;
+
+}
+
+#jewels li {
+    display: inline;
 }
