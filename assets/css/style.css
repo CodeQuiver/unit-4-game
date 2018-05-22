@@ -77,3 +77,10 @@ aside#scoreboard {
 #jewels li {
     display: inline;
 }
+
+#winMessage, #lossMessage {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 32px;
+    text-align: center;
+    text-align-last: center;
+}
