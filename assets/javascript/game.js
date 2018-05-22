@@ -26,35 +26,44 @@ function newRound() {
     answer = Math.floor(Math.random() * 102) + 19;
     console.log("computer answer is " + answer);
 
-    jewel1Value = Math.floor(Math.random() * 12);
+    jewel1Value = Math.floor(Math.random() * 12) + 1;
     console.log("Jewel 1 is " + jewel1Value);
 
-    jewel2Value = Math.floor(Math.random() * 12);
+    jewel2Value = Math.floor(Math.random() * 12) + 1;
     console.log("Jewel 2 is " + jewel2Value);
 
-    jewel3Value = Math.floor(Math.random() * 12);
+    jewel3Value = Math.floor(Math.random() * 12) + 1;
     console.log("Jewel 3 is " + jewel3Value);
 
-    // jquery - update the display to show new computer score and hide both #winMessage and #lossMessage in html until ready to show them in course of round
+    // reset userScore
+    userScore = 0;
+
+    // jquery - update the display to show new computer score and user score
     $("#answer").text(answer);
+    $("#currentscore").text(userScore);
+
 }
 
 // Win or Lose Function
 // if player score === answer then add 1 to wins, update #scoreboard by showing "You Won!" #winMessage (hiding #lossMessage) and new win total, and call newRound function
 // if player score > answer then add 1 to losses, update #scoreboard by showing "You Lost!" #lossMessage (hiding #winMessage) and new loss total, and call newRound function
 // if player score < answer nothing happens (game continues and this is managed by jQuery code in main body) so no code needed for that case
-function winLoss(userScore, answer) {
+function winLoss() {
     if (userScore === answer) {
         winCount++
         console.log("new winCount is " + winCount);
-        $("#wins").text(winCount);
+        $("#lossMessage").hide();
+        $("#winMessage").show(300);
+        $("#wins").text("Wins: " + winCount);
         newRound();
     }
 
     else if (userScore > answer) {
         lossCount++
         console.log("new lossCount is " + lossCount);
-        $("#losses").text(lossCount);
+        $("#winMessage").hide();
+        $("#lossMessage").show(300);
+        $("#losses").text("Losses: " + lossCount);
         newRound();
     }
     
@@ -67,6 +76,10 @@ function winLoss(userScore, answer) {
 //call the function when page first loads to assign initial answer value and hidden jewel values
 newRound();
 
+// hide win and loss messages at beginning of game
+$("#winMessage").hide();
+$("#lossMessage").hide();
+
 /** For each jewel button: on click (this is jQuery section for page interactions)
  * 1- add jewel value to userScore
  * 2- update display of userScore in scoreboard
@@ -75,28 +88,25 @@ newRound();
 
 // Jewel1-3 on click functions - updating score functionality
 
-$("#jewels").on("click", "#jewel1", function(jewel1Value) {
+$("#jewels").on("click", "#jewel1", function() {
     userScore = jewel1Value + userScore;
     console.log("new userScore is " + userScore);
-    //print updated score in #currentscore
-    newFunction();
+    $("#currentscore").text(userScore);
+    winLoss();
 
-}).on("click", "#jewel2", function(jewel2Value) {
+
+}).on("click", "#jewel2", function() {
 
     userScore = jewel2Value + userScore;
     console.log("new userScore is " + userScore);
-    //print updated score in #currentscore
-    //call winloss function to check for wins or losses
+    $("#currentscore").text(userScore);
+    winLoss();
 
-}).on("click", "#jewel3", function(jewel3Value) {
+}).on("click", "#jewel3", function() {
 
     userScore = jewel3Value + userScore;
     console.log("new userScore is " + userScore);
-    //print updated score in #currentscore
-    //call winloss function to check for wins or losses
+    $("#currentscore").text(userScore);
+    winLoss();
 
 });
-
-function newFunction() {
-    winLoss();
-}
