@@ -57,21 +57,21 @@ h3 {
 
 aside#scoreboard {
     background-color: hotpink;
+    border: solid 2px indigo;
     float: left;
-    width: 200px;
+    width: 250px;
     margin: 20px;
     margin-top: 0;
-    padding: 10px;
+    padding: 20px 10px;
+    line-height: 2em;
     text-align: left;
 }
 
 #jewels {
     width: 60%;
-    margin: 10px auto;
+    margin: 20px auto;
     padding: 10px;
     text-align: center;
-    margin: 40px auto;
-
 }
 
 #jewels li {
