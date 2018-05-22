@@ -7,8 +7,9 @@
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">    
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Monoton|Rokkitt:400,600" rel="stylesheet" />
-    <!-- link to javascript -->
-    <script src="assets/javascript/game.js"></script> 
+    
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <title>Crystal Collector Game</title>
 
@@ -40,8 +41,8 @@
         <h2 id="lossMessage">You Lost!</h3> -->
             <!-- These messages would be initially hidden, then displayed when the user won or lost a round --> 
             <!-- commenting out the messages for now since I want to first focus on the button functions then come back to this part, but it's not as essential to have popup messages as it is to have the buttons/jewels function correctly -->
-        <h2 id="wins">Wins:</h2>
-        <h2 id="losses">Losses:</h2>        
+        <h2 id="wins">Wins:&nbsp;</h2>
+        <h2 id="losses">Losses:&nbsp;</h2>        
     </aside>
 
     <!-- div with images -->
@@ -66,6 +67,7 @@
     <h2 class="label">Your Current Score:</h2>
     <h3 id="currentscore">0</h3>
 
-
+    <!-- link to javascript -->
+    <script src="assets/javascript/game.js"></script> 
 </body>
 </html>

@@ -36,6 +36,7 @@ function newRound() {
     console.log("Jewel 3 is " + jewel3Value);
 
     // jquery - update the display to show new computer score and hide both #winMessage and #lossMessage in html until ready to show them in course of round
+    $("#answer").text(answer);
 }
 
 // Win or Lose Function
@@ -43,10 +44,21 @@ function newRound() {
 // if player score > answer then add 1 to losses, update #scoreboard by showing "You Lost!" #lossMessage (hiding #winMessage) and new loss total, and call newRound function
 // if player score < answer nothing happens (game continues and this is managed by jQuery code in main body) so no code needed for that case
 function winLoss(userScore, answer) {
+    if (userScore === answer) {
+        winCount++
+        console.log("new winCount is " + winCount);
+        $("#wins").text(winCount);
+        newRound();
+    }
+
+    else if (userScore > answer) {
+        lossCount++
+        console.log("new lossCount is " + lossCount);
+        $("#losses").text(lossCount);
+        newRound();
+    }
     
 }
-
-
 
 
 
@@ -60,3 +72,31 @@ newRound();
  * 2- update display of userScore in scoreboard
  * 3- check if lost or won- call Win or Lose function
 **/
+
+// Jewel1-3 on click functions - updating score functionality
+
+$("#jewels").on("click", "#jewel1", function(jewel1Value) {
+    userScore = jewel1Value + userScore;
+    console.log("new userScore is " + userScore);
+    //print updated score in #currentscore
+    newFunction();
+
+}).on("click", "#jewel2", function(jewel2Value) {
+
+    userScore = jewel2Value + userScore;
+    console.log("new userScore is " + userScore);
+    //print updated score in #currentscore
+    //call winloss function to check for wins or losses
+
+}).on("click", "#jewel3", function(jewel3Value) {
+
+    userScore = jewel3Value + userScore;
+    console.log("new userScore is " + userScore);
+    //print updated score in #currentscore
+    //call winloss function to check for wins or losses
+
+});
+
+function newFunction() {
+    winLoss();
+}
