@@ -12,6 +12,7 @@ var userScore = 0;
 var jewel1Value = 0;
 var jewel2Value = 0;
 var jewel3Value = 0;
+var jewel4Value = 0;
 
 
 //FUNCTIONS
@@ -34,6 +35,9 @@ function newRound() {
 
     jewel3Value = Math.floor(Math.random() * 12) + 1;
     console.log("Jewel 3 is " + jewel3Value);
+
+    jewel4Value = Math.floor(Math.random() * 12) + 1;
+    console.log("Jewel 4 is " + jewel4Value);
 
     // reset userScore
     userScore = 0;
@@ -86,7 +90,7 @@ $("#lossMessage").hide();
  * 3- check if lost or won- call Win or Lose function
 **/
 
-// Jewel1-3 on click functions - updating score functionality
+// Jewel1-4 on click functions - updating score functionality
 
 $("#jewels").on("click", "#jewel1", function() {
     userScore = jewel1Value + userScore;
@@ -105,6 +109,13 @@ $("#jewels").on("click", "#jewel1", function() {
 }).on("click", "#jewel3", function() {
 
     userScore = jewel3Value + userScore;
+    console.log("new userScore is " + userScore);
+    $("#currentscore").text(userScore);
+    winLoss();
+
+}).on("click", "#jewel4", function() {
+
+    userScore = jewel4Value + userScore;
     console.log("new userScore is " + userScore);
     $("#currentscore").text(userScore);
     winLoss();
